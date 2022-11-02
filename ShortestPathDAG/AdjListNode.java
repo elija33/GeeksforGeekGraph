@@ -9,7 +9,7 @@ public class AdjListNode {
     private int v;
     private int weight;
 
-    AdjListNode(int _v, int _w) {
+    public AdjListNode(int _v, int _w) {
         v = _v;
         weight = _w;
     }
@@ -27,19 +27,19 @@ class Graph {
     private int V;
     private LinkedList<AdjListNode> adj[];
 
-    Graph(int v) {
+    public Graph(int v) {
         V = v;
         adj = new LinkedList[V];
         for (int i = 0; i < v; ++i)
             adj[i] = new LinkedList<AdjListNode>();
     }
 
-    void addEdge(int u, int v, int weight) {
+    public void addEdge(int u, int v, int weight) {
         AdjListNode node = new AdjListNode(v, weight);
         adj[u].add(node);
     }
 
-    void topologicalSortUtil(int v, Boolean visited[], Stack stack) {
+    public void topologicalSortUtil(int v, Boolean visited[], Stack stack) {
 
         visited[v] = true;
         Integer i;
@@ -54,7 +54,7 @@ class Graph {
         stack.add(v);
     }
 
-    void shortestPath(int s) {
+    public void shortestPath(int s) {
         Stack stack = new Stack();
         int dist[] = new int[V];
 
